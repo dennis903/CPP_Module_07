@@ -21,6 +21,11 @@ class Array
 				this->m_arr[i] = _Array.m_arr[i];
 			}
 		}
+		~Array()
+		{
+			delete[] m_arr;
+			m_arr = NULL;
+		}
 		Array &operator = (const Array &_Array)
 		{
 			if (this == &_Array)
