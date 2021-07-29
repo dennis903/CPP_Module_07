@@ -41,4 +41,19 @@ int		main()
 			std::cout << IntArray[i] << ' ';
 		std::cout << std::endl;
 	}
+	std::cout << "============= <exception test> ===========" << std::endl;
+	{
+		try
+		{
+			Array<char> CharArray(5);
+			for (unsigned int i = 0; i < CharArray.size(); i++)
+				CharArray[i] = i + 65;
+			std::cout << CharArray[-1] << std::endl;
+			std::cout << std::endl;
+		}
+		catch (std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+	}
 }
