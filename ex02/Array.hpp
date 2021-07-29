@@ -49,6 +49,12 @@ class Array
 				throw	IndexError();
 			return (this->m_arr[index]);
 		}
+		const T& operator [] (const unsigned int index) const
+		{
+			if (index < 0 || index >= this->n)
+				throw	IndexError();
+			return (this->m_arr[index]);
+		}
 		unsigned int size() const
 		{
 			return (this->n);
@@ -56,10 +62,10 @@ class Array
 		class IndexError : public std::exception
 		{
 			public:
-				virtual const char *what() const
+				virtual const char *what() const throw()
 				{
 					return ("This is Wrong index");
 				}
-		}
+		};
 };
 #endif
